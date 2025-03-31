@@ -5,13 +5,14 @@ import { Amplify } from 'aws-amplify';
 import './App.css'
 
 // Configure Amplify
-Amplify.configure({
-  Auth: {
-    region: import.meta.env.VITE_AWS_REGION || 'us-east-1',
-    userPoolId: import.meta.env.VITE_USER_POOL_ID,
-    userPoolWebClientId: import.meta.env.VITE_USER_POOL_CLIENT_ID,
-  },
-});
+const awsConfig = {
+  aws_project_region: import.meta.env.VITE_AWS_REGION || 'us-east-1',
+  aws_cognito_region: import.meta.env.VITE_AWS_REGION || 'us-east-1',
+  aws_user_pools_id: import.meta.env.VITE_USER_POOL_ID,
+  aws_user_pools_web_client_id: import.meta.env.VITE_USER_POOL_CLIENT_ID,
+};
+
+Amplify.configure(awsConfig);
 
 function App() {
   return (
