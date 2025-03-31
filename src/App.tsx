@@ -16,7 +16,7 @@ Amplify.configure(awsConfig);
 
 function App() {
   return (
-    <Authenticator>
+    <Authenticator hideSignUp={true}>
       {({ signOut }) => (
         <div className="app">
           <header>
